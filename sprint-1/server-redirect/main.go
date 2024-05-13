@@ -12,10 +12,13 @@ func redirect(resp http.ResponseWriter, req *http.Request) {
 
 func longHandler(w http.ResponseWriter, _ *http.Request) {
 	const timeout = 10 * time.Second
+
 	time.Sleep(timeout)
+
 	_, err := w.Write([]byte("Request took longer than 3 seconds"))
 	if err != nil {
 		log.Println(err)
+
 		return
 	}
 }
@@ -37,6 +40,7 @@ func main() {
 	http.Handle("/404/", http.NotFoundHandler())
 
 	const timeout = 5 * time.Second
+
 	http.Handle("/timeout/", http.TimeoutHandler(http.HandlerFunc(longHandler), timeout, "Timeout occurred"))
 
 	log.Fatal(http.ListenAndServe("localhost:8080", nil)) //nolint:gosec // it's learning code

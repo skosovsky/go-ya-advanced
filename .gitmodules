@@ -1,0 +1,6 @@
+[submodule "shortener"]
+	path = shortener
+	url = git@github.com:skosovsky/shortener.git
+[submodule "metrics"]
+	path = metrics
+	url = git@github.com:skosovsky/metrics.git

@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 )
 
@@ -28,5 +29,5 @@ func WriteHandleWrite(w http.ResponseWriter, _ *http.Request) {
 }
 
 func main() {
-
+	log.Println()
 }

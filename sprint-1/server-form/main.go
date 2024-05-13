@@ -10,9 +10,11 @@ import (
 func mainPage(res http.ResponseWriter, req *http.Request) {
 	body := fmt.Sprintf("Method: %s\r\n", req.Method)
 	body += "Header ===\r\n"
+
 	for key, value := range req.Header {
 		body += fmt.Sprintf("%s: %s\r\n", key, value)
 	}
+
 	body += "Query parameters from req.URL.Query() ===\r\n"
 
 	for key, value := range req.URL.Query() {
@@ -23,12 +25,14 @@ func mainPage(res http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		log.Println(err)
 	}
+
 	log.Println(string(bodyNew)) // empty for GET
 
 	if err = req.ParseForm(); err != nil {
 		_, err = res.Write([]byte(err.Error()))
 		if err != nil {
 			log.Println(err)
+
 			return
 		}
 	}
@@ -41,6 +45,7 @@ func mainPage(res http.ResponseWriter, req *http.Request) {
 	_, err = res.Write([]byte(body))
 	if err != nil {
 		log.Println(err)
+
 		return
 	}
 }

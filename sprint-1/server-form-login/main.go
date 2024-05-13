@@ -30,18 +30,21 @@ func mainPage(res http.ResponseWriter, req *http.Request) {
 
 		if !isAuth(login, password) {
 			http.Error(res, "incorrect login or password", http.StatusUnauthorized)
+
 			return
 		}
 
 		_, err := io.WriteString(res, "Welcome!") // fmt.Fprint(res, "Welcome!") or res.Write([]byte("Welcome!"))
 		if err != nil {
 			log.Println(err)
+
 			return
 		}
 	} else {
 		_, err := io.WriteString(res, form)
 		if err != nil {
 			log.Println(err)
+
 			return
 		}
 	}

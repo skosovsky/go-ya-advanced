@@ -40,6 +40,7 @@ func rootHandle(resp http.ResponseWriter, _ *http.Request) {
 	_, err := resp.Write([]byte("Hello World"))
 	if err != nil {
 		log.Println(err)
+
 		return
 	}
 }

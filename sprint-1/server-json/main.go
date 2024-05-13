@@ -17,14 +17,16 @@ func JSONHandler(res http.ResponseWriter, _ *http.Request) {
 	resJSON, err := json.Marshal(subj)
 	if err != nil {
 		http.Error(res, err.Error(), http.StatusInternalServerError)
+
 		return
 	}
 
-	res.Header().Set("content-type", "application/json")
+	res.Header().Set("Content-Type", "application/json")
 	res.WriteHeader(http.StatusOK)
 	_, err = res.Write(resJSON)
 	if err != nil {
 		log.Println(err)
+
 		return
 	}
 }

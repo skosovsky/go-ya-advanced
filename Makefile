@@ -1,5 +1,5 @@
 .SILENT:
-APP=go-ya-advanced
+APP=algo/ya-details
 
 .PHONY: help
 help: Makefile ## Show this help
@@ -33,4 +33,4 @@ clean: ## Clean a garbage
 
 lint: ## Check a code by golangci-lint
 	@echo "Linter checking..."
-	golangci-lint run -c golangci.yml ./...
+	golangci-lint run -c .golangci.yml ./...

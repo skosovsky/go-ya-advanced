@@ -1,0 +1,7 @@
+internal/core/services/internal/mocks
+internal/core/services/internal/mocks-reflect
+internal/core/services/internal/mockery
+
+cmd/foobar/foobar
+
+lint-report.json

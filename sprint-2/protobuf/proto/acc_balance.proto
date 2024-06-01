@@ -1,0 +1,17 @@
+syntax = "proto3"; // protoc --proto_path=proto --go_opt=paths=source_relative --go_out=. proto/acc_balance.proto
+
+package account.v1beta1;
+
+option go_package = "./;main";
+
+message AccountBalance {
+  bytes account_id_hash = 1;                // []byte
+  bool is_blocked = 2;                      // bool
+  repeated CurrencyAmount amounts = 3;      // []CurrencyAmount
+}
+
+message CurrencyAmount {
+  int64  amount = 1;   // int64
+  int32  decimals = 2; // int32 (int8 не определён спецификацией proto3)
+  string symbol = 3;   // string
+}
